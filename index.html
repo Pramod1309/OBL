@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="One Bag Learning provides preschool curriculum, classroom products, teacher training, learning kits, parent engagement, and school ERP support." />
-  <title>One Bag Learning | Preschool Services, Products & School ERP</title>
-  <link rel="preload" as="image" href="assets/Final-Image-hero.png" />
+  <meta name="description" content="One Bag Learning provides preschool curriculum, classroom products, teacher training, learning kits, and parent engagement support." />
+  <title>One Bag Learning | Preschool Products & Services</title>
+  <link rel="preload" as="image" href="assets/herobanner4.png" />
   <link rel="stylesheet" href="styles.css" />
   <script defer src="https://unpkg.com/lucide@latest"></script>
   <script defer src="script.js"></script>
@@ -14,18 +14,30 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" data-header>
+    <a class="brand header-brand" href="#home" aria-label="One Bag Learning home">
+      <img class="brand-logo" src="assets/OBL%20Logo.png" alt="" width="42" height="42" />
+      <span class="brand-name">One Bag Learning</span>
+    </a>
     <nav class="main-nav" id="site-nav" aria-label="Primary navigation">
-      <a class="nav-link" href="#home">Home</a>
+      <a class="nav-link active" href="#home">Home</a>
       <a class="nav-link" href="#services">Services</a>
       <a class="nav-link" href="#products">Products</a>
       <a class="nav-link" href="#contact">Contact us</a>
-      <a class="nav-link" href="#erp">School ERP</a>
     </nav>
+    <a class="btn btn-primary header-demo" href="#contact">
+      <i data-lucide="calendar-check" aria-hidden="true"></i>
+      <span>Book Demo</span>
+    </a>
   </header>
 
   <main id="main">
-    <section class="hero section-panel" id="home">
-      <img class="hero-image" src="assets/Final-Image-hero.png" alt="One Bag Learning preschool services and products" />
+    <section class="hero section-panel" id="home" data-hero-carousel role="button" tabindex="0" aria-label="One Bag Learning hero banners. Click to pause or play.">
+      <div class="hero-slider-track" data-hero-slider>
+        <img class="hero-slide" src="assets/herobanner4.png" alt="One Bag Learning preschool growth partner and consultant banner" />
+        <img class="hero-slide" src="assets/herobanner3.png" alt="One Bag Learning preschool products and services banner" />
+        <img class="hero-slide" src="assets/herobanner2.png" alt="One Bag Learning preschool support banner" />
+        <img class="hero-slide" src="assets/herobanner1.png" alt="One Bag Learning preschool learning solutions banner" />
+      </div>
     </section>
 
     <section class="ticker-band" aria-label="One Bag Learning capabilities">
@@ -38,33 +50,6 @@
         <span>School ERP</span>
         <span>Classroom setup</span>
         <span>Assessment journals</span>
-      </div>
-    </section>
-
-    <section class="intro-band">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Built for preschool owners</p>
-        <h2>From one bag to a full learning world.</h2>
-        <p>
-          One Bag Learning brings products, services, and digital workflows together so preschool teams can run sharper classrooms and happier parent communication.
-        </p>
-      </div>
-      <div class="value-grid">
-        <article class="value-card reveal">
-          <i data-lucide="blocks" aria-hidden="true"></i>
-          <h3>Learning That Children Touch</h3>
-          <p>Hands-on kits, activity sheets, books, manipulatives, and theme resources for everyday discovery.</p>
-        </article>
-        <article class="value-card reveal">
-          <i data-lucide="graduation-cap" aria-hidden="true"></i>
-          <h3>Teachers That Feel Ready</h3>
-          <p>Training, lesson guidance, observation formats, and classroom routines that make implementation simple.</p>
-        </article>
-        <article class="value-card reveal">
-          <i data-lucide="layout-dashboard" aria-hidden="true"></i>
-          <h3>Schools That Run Smoothly</h3>
-          <p>Admissions, fees, attendance, communication, reports, and dashboards in one clean ERP flow.</p>
-        </article>
       </div>
     </section>
 
@@ -144,121 +129,6 @@
       </div>
     </section>
 
-    <section class="journey-section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Preschool day journey</p>
-        <h2>A smoother rhythm from morning arrival to parent update.</h2>
-      </div>
-
-      <div class="journey-line" aria-hidden="true"></div>
-      <div class="journey-grid">
-        <article class="journey-step reveal">
-          <span>08:30</span>
-          <h3>Welcome & Attendance</h3>
-          <p>Teachers mark attendance and receive the day plan before classroom energy begins.</p>
-        </article>
-        <article class="journey-step reveal">
-          <span>10:00</span>
-          <h3>Theme Activity</h3>
-          <p>Children open the planned kit, explore tactile materials, and build early concepts through play.</p>
-        </article>
-        <article class="journey-step reveal">
-          <span>12:30</span>
-          <h3>Observation Note</h3>
-          <p>Milestones and classroom moments are captured while the learning is still fresh.</p>
-        </article>
-        <article class="journey-step reveal">
-          <span>16:00</span>
-          <h3>Parent Connection</h3>
-          <p>Photos, homework cues, fees, circulars, and progress updates reach parents in one simple flow.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="erp-section section-panel" id="erp">
-      <div class="erp-layout">
-        <div class="section-heading reveal">
-          <p class="eyebrow">School ERP</p>
-          <h2>One calm dashboard for busy preschool teams.</h2>
-          <p>
-            Manage daily operations, parent communication, admissions, fees, classroom reports, staff activity, and child progress from one preschool-focused ERP.
-          </p>
-          <div class="erp-actions">
-            <a class="btn btn-primary" href="#contact">
-              <span>Request ERP demo</span>
-              <i data-lucide="arrow-right" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="erp-console reveal" aria-label="School ERP dashboard preview">
-          <div class="console-top">
-            <span>OBL School ERP</span>
-            <i data-lucide="sparkles" aria-hidden="true"></i>
-          </div>
-          <div class="console-grid">
-            <div class="console-stat accent-teal">
-              <span>Attendance</span>
-              <strong>94%</strong>
-            </div>
-            <div class="console-stat accent-coral">
-              <span>Fees</span>
-              <strong>81%</strong>
-            </div>
-            <div class="console-stat accent-sun">
-              <span>Parent notes</span>
-              <strong>128</strong>
-            </div>
-          </div>
-          <div class="console-list">
-            <div>
-              <span>Nursery A activity update</span>
-              <strong>Sent</strong>
-            </div>
-            <div>
-              <span>Transport route change</span>
-              <strong>Live</strong>
-            </div>
-            <div>
-              <span>Teacher lesson plan review</span>
-              <strong>Due</strong>
-            </div>
-          </div>
-          <div class="console-chart" aria-hidden="true">
-            <span style="--height: 68%"></span>
-            <span style="--height: 92%"></span>
-            <span style="--height: 54%"></span>
-            <span style="--height: 78%"></span>
-            <span style="--height: 64%"></span>
-            <span style="--height: 88%"></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="erp-feature-grid">
-        <article class="erp-feature reveal">
-          <i data-lucide="contact-round" aria-hidden="true"></i>
-          <h3>Admissions CRM</h3>
-          <p>Lead capture, inquiry status, follow-ups, tour scheduling, and admission conversion visibility.</p>
-        </article>
-        <article class="erp-feature reveal">
-          <i data-lucide="wallet-cards" aria-hidden="true"></i>
-          <h3>Fees & Receipts</h3>
-          <p>Fee reminders, receipts, collection reports, due lists, and parent payment communication.</p>
-        </article>
-        <article class="erp-feature reveal">
-          <i data-lucide="baby" aria-hidden="true"></i>
-          <h3>Child Progress</h3>
-          <p>Milestones, observations, classroom notes, report cards, and parent-ready learning summaries.</p>
-        </article>
-        <article class="erp-feature reveal">
-          <i data-lucide="bus-front" aria-hidden="true"></i>
-          <h3>Transport & Safety</h3>
-          <p>Route details, pickup notes, emergency contacts, staff coordination, and daily safety checklists.</p>
-        </article>
-      </div>
-    </section>
-
     <section class="contact-section" id="contact">
       <div class="contact-copy reveal">
         <p class="eyebrow">Contact us</p>
@@ -318,15 +188,14 @@
           <small>Learning</small>
         </span>
       </a>
-      <p>Preschool products, services, and ERP for joyful early learning.</p>
+      <p>Preschool products and services for joyful early learning.</p>
     </div>
     <nav aria-label="Footer navigation">
       <a href="#services">Services</a>
       <a href="#products">Products</a>
-      <a href="#erp">School ERP</a>
       <a href="#contact">Contact</a>
     </nav>
-    <p class="copyright">© 2026 One Bag Learning. All rights reserved.</p>
+    <p class="copyright">&copy; 2026 One Bag Learning. All rights reserved.</p>
   </footer>
 </body>
 </html>

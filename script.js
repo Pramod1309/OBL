@@ -110,6 +110,63 @@ if (ticker) {
   ticker.innerHTML += ticker.innerHTML;
 }
 
+const heroCarousel = document.querySelector("[data-hero-carousel]");
+const heroSlider = document.querySelector("[data-hero-slider]");
+let heroSlideIndex = 0;
+let heroTimer = null;
+let heroPaused = false;
+
+function showHeroSlide(index) {
+  if (!heroSlider) return;
+  const slideCount = heroSlider.children.length;
+  heroSlideIndex = (index + slideCount) % slideCount;
+  heroSlider.style.transform = `translateX(-${heroSlideIndex * 100}%)`;
+}
+
+function stopHeroSlider() {
+  if (!heroTimer) return;
+  clearInterval(heroTimer);
+  heroTimer = null;
+}
+
+function startHeroSlider() {
+  if (!heroSlider || reduceMotion || heroPaused || heroSlider.children.length < 2 || heroTimer) return;
+  heroTimer = setInterval(() => showHeroSlide(heroSlideIndex + 1), 3000);
+}
+
+if (heroCarousel && heroSlider) {
+  if (reduceMotion) {
+    heroSlider.style.transition = "none";
+  } else {
+    startHeroSlider();
+  }
+
+  heroCarousel.addEventListener("click", () => {
+    heroPaused = !heroPaused;
+    heroCarousel.classList.toggle("is-paused", heroPaused);
+    heroCarousel.setAttribute("aria-pressed", String(heroPaused));
+    if (heroPaused) {
+      stopHeroSlider();
+    } else {
+      startHeroSlider();
+    }
+  });
+
+  heroCarousel.addEventListener("keydown", (event) => {
+    if (event.key !== " " && event.key !== "Enter") return;
+    event.preventDefault();
+    heroCarousel.click();
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stopHeroSlider();
+    } else {
+      startHeroSlider();
+    }
+  });
+}
+
 const contactForm = document.querySelector("#contact-form");
 const formNote = document.querySelector(".form-note");
 
