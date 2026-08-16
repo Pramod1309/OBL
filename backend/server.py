@@ -1,11 +1,12 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
+import os
 import sqlite3
 from pathlib import Path
 
-HOST = "localhost"
-PORT = 5000
-DB_PATH = Path(__file__).with_name("enquiries.db")
+HOST = os.environ.get("OBL_BACKEND_HOST", "localhost")
+PORT = int(os.environ.get("OBL_BACKEND_PORT", "5000"))
+DB_PATH = Path(os.environ.get("OBL_DB_PATH", Path(__file__).with_name("enquiries.db")))
 
 
 def init_db():
