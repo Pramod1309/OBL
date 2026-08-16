@@ -1,8 +1,7 @@
 const header = document.querySelector("[data-header]");
-const nav = document.querySelector(".main-nav");
-const navLinks = [...document.querySelectorAll(".nav-link")];
+const nav = document.querySelector("[data-nav]");
+const menuToggle = document.querySelector("[data-menu-toggle]");
 const revealItems = [...document.querySelectorAll(".reveal")];
-const countItems = [...document.querySelectorAll("[data-count]")];
 
 function initIcons() {
   if (window.lucide) {
@@ -17,16 +16,41 @@ function initIcons() {
 window.addEventListener("load", initIcons);
 
 function setHeaderState() {
+  if (!header) return;
   header.classList.toggle("scrolled", window.scrollY > 20);
 }
 
 setHeaderState();
 window.addEventListener("scroll", setHeaderState, { passive: true });
 
-nav.addEventListener("click", (event) => {
-  const link = event.target.closest("a");
-  if (!link) return;
-  document.body.classList.remove("nav-open");
+function setMenuState(isOpen) {
+  document.body.classList.toggle("nav-open", isOpen);
+  if (menuToggle) {
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  }
+}
+
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    setMenuState(!document.body.classList.contains("nav-open"));
+  });
+}
+
+if (nav) {
+  nav.addEventListener("click", (event) => {
+    const menuItem = event.target.closest("a, button");
+    if (!menuItem) return;
+    if (menuItem.matches(".nav-action")) {
+      event.preventDefault();
+    }
+    setMenuState(false);
+  });
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    setMenuState(false);
+  }
 });
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -57,53 +81,6 @@ revealItems.forEach((item) => {
 
   revealObserver.observe(item);
 });
-
-function animateCount(item) {
-  const target = Number(item.dataset.count);
-  const duration = 1100;
-  const start = performance.now();
-
-  function frame(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    item.textContent = Math.round(target * eased).toLocaleString("en-IN");
-    if (progress < 1) requestAnimationFrame(frame);
-  }
-
-  requestAnimationFrame(frame);
-}
-
-const countObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        animateCount(entry.target);
-        countObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.6 }
-);
-
-countItems.forEach((item) => countObserver.observe(item));
-
-const sections = navLinks
-  .map((link) => document.querySelector(link.getAttribute("href")))
-  .filter(Boolean);
-
-const navObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      navLinks.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
-      });
-    });
-  },
-  { rootMargin: "-42% 0px -50% 0px" }
-);
-
-sections.forEach((section) => navObserver.observe(section));
 
 const ticker = document.querySelector(".ticker-track");
 if (ticker) {
@@ -170,10 +147,76 @@ if (heroCarousel && heroSlider) {
 const contactForm = document.querySelector("#contact-form");
 const formNote = document.querySelector(".form-note");
 
-contactForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const formData = new FormData(contactForm);
-  const name = String(formData.get("name") || "there").trim();
-  formNote.textContent = `Thank you, ${name}. Your enquiry is ready. Connect this form to your preferred email or CRM to receive submissions.`;
-  contactForm.reset();
-});
+function getContactEndpoint() {
+  if (!contactForm) return "";
+  const configuredEndpoint = contactForm.dataset.endpoint.trim();
+  if (configuredEndpoint) return configuredEndpoint;
+  if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+    return "http://localhost:5000/api/enquiries";
+  }
+  return "";
+}
+
+function savePendingEnquiry(payload) {
+  const key = "oblPendingEnquiries";
+  const existing = JSON.parse(localStorage.getItem(key) || "[]");
+  existing.push({
+    ...payload,
+    savedAt: new Date().toISOString()
+  });
+  localStorage.setItem(key, JSON.stringify(existing));
+}
+
+async function submitEnquiry(payload) {
+  const endpoint = getContactEndpoint();
+  if (!endpoint) {
+    savePendingEnquiry(payload);
+    return;
+  }
+
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    throw new Error("Unable to submit enquiry");
+  }
+}
+
+if (contactForm && formNote) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const submitButton = contactForm.querySelector("button[type='submit']");
+    const formData = new FormData(contactForm);
+    const payload = {
+      name: String(formData.get("name") || "").trim(),
+      school: String(formData.get("school") || "").trim(),
+      contact: String(formData.get("contact") || "").trim(),
+      interest: String(formData.get("interest") || "").trim(),
+      message: String(formData.get("message") || "").trim()
+    };
+
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
+    formNote.textContent = "Sending your query...";
+
+    try {
+      await submitEnquiry(payload);
+      formNote.textContent = "Thank you for your attention. We will be in touch with you.";
+      contactForm.reset();
+    } catch (error) {
+      savePendingEnquiry(payload);
+      formNote.textContent = "Thank you for your attention. We will be in touch with you.";
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+      }
+    }
+  });
+}

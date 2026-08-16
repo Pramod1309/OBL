@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact One Bag Learning for preschool products, services, teacher training, admissions growth, and demo requests." />
+  <title>Contact Us | One Bag Learning</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="script.js"></script>
+</head>
+<body data-page="contact">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <a class="brand header-brand" href="index.html" aria-label="One Bag Learning home">
+      <img class="brand-logo" src="assets/OBL%20Logo.png" alt="One Bag Learning logo" width="42" height="42" />
+      <span class="brand-name">One Bag Learning</span>
+    </a>
+
+    <button class="menu-toggle" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false">
+      <i data-lucide="menu" aria-hidden="true"></i>
+      <span>Menu</span>
+    </button>
+
+    <nav class="main-nav" id="site-nav" data-nav aria-label="Primary navigation">
+      <div class="nav-pages">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="products.html">Products</a>
+        <a class="nav-link" href="contact.html" aria-current="page">Contact us</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-link nav-action library-action" type="button">OBL Library</button>
+        <button class="nav-link nav-action erp-action" type="button">School ERP</button>
+        <a class="nav-link nav-demo" href="contact.html">
+          <i data-lucide="calendar-check" aria-hidden="true"></i>
+          <span>Book Demo</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero contact-hero">
+      <div class="page-hero-copy reveal">
+        <p class="eyebrow">Contact us</p>
+        <h1>Tell us what your preschool needs next.</h1>
+        <p>
+          Share your requirement for products, services, admissions growth, training, or a complete preschool support package.
+        </p>
+      </div>
+      <div class="page-hero-pills reveal" aria-label="Contact highlights">
+        <span>Preschool-focused</span>
+        <span>Modular packages</span>
+        <span>India-ready support</span>
+      </div>
+    </section>
+
+    <section class="contact-section redesigned-contact">
+      <div class="contact-copy reveal">
+        <p class="eyebrow">Book demo</p>
+        <h2>Ready to make your preschool easier to run and richer to learn in?</h2>
+        <p>
+          Fill the form and our team will review your requirement.
+        </p>
+        <div class="contact-highlights">
+          <span><i data-lucide="check" aria-hidden="true"></i> Products</span>
+          <span><i data-lucide="check" aria-hidden="true"></i> Services</span>
+          <span><i data-lucide="check" aria-hidden="true"></i> Growth support</span>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contact-form" data-endpoint="">
+        <label>
+          <span>Your name</span>
+          <input type="text" name="name" autocomplete="name" required />
+        </label>
+        <label>
+          <span>School name</span>
+          <input type="text" name="school" autocomplete="organization" required />
+        </label>
+        <label>
+          <span>Phone or email</span>
+          <input type="text" name="contact" autocomplete="email" required />
+        </label>
+        <label>
+          <span>Interested in</span>
+          <select name="interest" required>
+            <option value="">Choose one</option>
+            <option>Services</option>
+            <option>Products</option>
+            <option>School ERP</option>
+            <option>OBL Library</option>
+            <option>Complete preschool package</option>
+          </select>
+        </label>
+        <label class="wide">
+          <span>Message</span>
+          <textarea name="message" rows="4" placeholder="Tell us about your preschool requirement"></textarea>
+        </label>
+        <button class="btn btn-primary wide" type="submit">
+          <span>Send query</span>
+          <i data-lucide="send" aria-hidden="true"></i>
+        </button>
+        <p class="form-note" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a class="brand footer-brand" href="index.html" aria-label="One Bag Learning home">
+        <img class="footer-logo" src="assets/OBL%20Logo.png" alt="One Bag Learning logo" width="48" height="48" />
+        <span class="brand-text">
+          <strong>One Bag Learning</strong>
+          <small>One bag. Endless learning.</small>
+        </span>
+      </a>
+      <p>Preschool products and services for joyful early learning.</p>
+    </div>
+    <nav aria-label="Footer navigation">
+      <a href="services.html">Services</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p class="copyright">&copy; 2026 One Bag Learning. All rights reserved.</p>
+  </footer>
+</body>
+</html>

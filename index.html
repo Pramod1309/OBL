@@ -3,35 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="One Bag Learning provides preschool curriculum, classroom products, teacher training, learning kits, and parent engagement support." />
+  <meta name="description" content="One Bag Learning provides preschool curriculum, classroom products, teacher training, learning kits, admissions support, and parent engagement services." />
   <title>One Bag Learning | Preschool Products & Services</title>
   <link rel="preload" as="image" href="assets/herobanner4.png" />
   <link rel="stylesheet" href="styles.css" />
   <script defer src="https://unpkg.com/lucide@latest"></script>
   <script defer src="script.js"></script>
 </head>
-<body>
+<body data-page="home">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" data-header>
-    <a class="brand header-brand" href="#home" aria-label="One Bag Learning home">
-      <img class="brand-logo" src="assets/OBL%20Logo.png" alt="" width="42" height="42" />
+    <a class="brand header-brand" href="index.html" aria-label="One Bag Learning home">
+      <img class="brand-logo" src="assets/OBL%20Logo.png" alt="One Bag Learning logo" width="42" height="42" />
       <span class="brand-name">One Bag Learning</span>
     </a>
-    <nav class="main-nav" id="site-nav" aria-label="Primary navigation">
-      <a class="nav-link active" href="#home">Home</a>
-      <a class="nav-link" href="#services">Services</a>
-      <a class="nav-link" href="#products">Products</a>
-      <a class="nav-link" href="#contact">Contact us</a>
+
+    <button class="menu-toggle" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false">
+      <i data-lucide="menu" aria-hidden="true"></i>
+      <span>Menu</span>
+    </button>
+
+    <nav class="main-nav" id="site-nav" data-nav aria-label="Primary navigation">
+      <div class="nav-pages">
+        <a class="nav-link" href="index.html" aria-current="page">Home</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="products.html">Products</a>
+        <a class="nav-link" href="contact.html">Contact us</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-link nav-action library-action" type="button">OBL Library</button>
+        <button class="nav-link nav-action erp-action" type="button">School ERP</button>
+        <a class="nav-link nav-demo" href="contact.html">
+          <i data-lucide="calendar-check" aria-hidden="true"></i>
+          <span>Book Demo</span>
+        </a>
+      </div>
     </nav>
-    <a class="btn btn-primary header-demo" href="#contact">
-      <i data-lucide="calendar-check" aria-hidden="true"></i>
-      <span>Book Demo</span>
-    </a>
   </header>
 
   <main id="main">
-    <section class="hero section-panel" id="home" data-hero-carousel role="button" tabindex="0" aria-label="One Bag Learning hero banners. Click to pause or play.">
+    <section class="hero section-panel" data-hero-carousel role="button" tabindex="0" aria-label="One Bag Learning hero banners. Click to pause or play.">
       <div class="hero-slider-track" data-hero-slider>
         <img class="hero-slide" src="assets/herobanner4.png" alt="One Bag Learning preschool growth partner and consultant banner" />
         <img class="hero-slide" src="assets/herobanner3.png" alt="One Bag Learning preschool products and services banner" />
@@ -53,147 +65,68 @@
       </div>
     </section>
 
-    <section class="services-section" id="services">
+    <section class="home-showcase">
       <div class="section-heading reveal">
-        <p class="eyebrow">Services</p>
-        <h2>Support for every preschool department.</h2>
-        <p>Practical services that help owners, coordinators, teachers, and parents move in the same direction.</p>
-      </div>
-
-      <div class="service-grid">
-        <article class="service-card reveal">
-          <i data-lucide="map" aria-hidden="true"></i>
-          <h3>Preschool Curriculum Design</h3>
-          <p>Age-wise curriculum maps, classroom flow, theme calendars, celebrations, and learning outcome tracking.</p>
-        </article>
-        <article class="service-card reveal">
-          <i data-lucide="school" aria-hidden="true"></i>
-          <h3>Classroom Setup</h3>
-          <p>Learning corners, display planning, child-safe resource layout, kit placement, and activity station guidance.</p>
-        </article>
-        <article class="service-card reveal">
-          <i data-lucide="users-round" aria-hidden="true"></i>
-          <h3>Teacher Training</h3>
-          <p>Workshops, demonstration plans, classroom management methods, assessment practice, and weekly mentoring.</p>
-        </article>
-        <article class="service-card reveal">
-          <i data-lucide="megaphone" aria-hidden="true"></i>
-          <h3>Admissions Growth</h3>
-          <p>Preschool-ready campaigns, open house planning, parent pitch content, tour scripts, and local outreach ideas.</p>
-        </article>
-        <article class="service-card reveal">
-          <i data-lucide="messages-square" aria-hidden="true"></i>
-          <h3>Parent Engagement</h3>
-          <p>Daily communication formats, activity photos, home practice cards, parent orientation, and progress conversations.</p>
-        </article>
-        <article class="service-card reveal">
-          <i data-lucide="clipboard-check" aria-hidden="true"></i>
-          <h3>Assessments & Reports</h3>
-          <p>Observation journals, milestones, term reports, coordinator review formats, and parent-friendly insights.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="products-section section-panel" id="products">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Products</p>
-        <h2>Preschool products that feel organized from day one.</h2>
-        <p>Designed for classrooms where children learn through play, repetition, touch, rhythm, and joyful surprise.</p>
-      </div>
-
-      <div class="product-stage">
-        <article class="product-card reveal">
-          <span>01</span>
-          <i data-lucide="briefcase-business" aria-hidden="true"></i>
-          <h3>One Bag Starter Kit</h3>
-          <p>Core learning bag with activity books, flash cards, labels, practice sheets, and first-month materials.</p>
-        </article>
-        <article class="product-card reveal">
-          <span>02</span>
-          <i data-lucide="palette" aria-hidden="true"></i>
-          <h3>Monthly Theme Kits</h3>
-          <p>Story, art, craft, pretend play, sensory, and celebration resources matched to preschool themes.</p>
-        </article>
-        <article class="product-card reveal">
-          <span>03</span>
-          <i data-lucide="badge-check" aria-hidden="true"></i>
-          <h3>Foundational Skill Packs</h3>
-          <p>Language, phonics, numeracy, motor skills, environmental awareness, and early STEM material.</p>
-        </article>
-        <article class="product-card reveal">
-          <span>04</span>
-          <i data-lucide="notebook-tabs" aria-hidden="true"></i>
-          <h3>Assessment Journals</h3>
-          <p>Clean milestone formats for teachers to observe, record, and share child progress with parents.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-      <div class="contact-copy reveal">
-        <p class="eyebrow">Contact us</p>
-        <h2>Ready to make your preschool easier to run and richer to learn in?</h2>
+        <p class="eyebrow">Preschool growth ecosystem</p>
+        <h1>Everything a modern preschool needs to grow with confidence.</h1>
         <p>
-          Share what your school needs: curriculum, kits, training, ERP, or a complete launch package.
+          One Bag Learning brings classroom products, preschool services, teacher guidance, and parent communication support into one bright, practical system.
         </p>
-        <div class="contact-highlights">
-          <span><i data-lucide="check" aria-hidden="true"></i> Preschool-focused</span>
-          <span><i data-lucide="check" aria-hidden="true"></i> Modular packages</span>
-          <span><i data-lucide="check" aria-hidden="true"></i> India-ready support</span>
+      </div>
+
+      <div class="spotlight-grid">
+        <article class="spotlight-card reveal">
+          <span class="spotlight-number">01</span>
+          <i data-lucide="sparkles" aria-hidden="true"></i>
+          <h2>Learning kits that feel ready on day one.</h2>
+          <p>Theme packs, practice sheets, activity resources, and classroom material planned around early childhood learning.</p>
+          <a class="text-link" href="products.html">View products</a>
+        </article>
+        <article class="spotlight-card reveal">
+          <span class="spotlight-number">02</span>
+          <i data-lucide="users-round" aria-hidden="true"></i>
+          <h2>Services that support owners and teachers.</h2>
+          <p>Curriculum planning, training, admissions ideas, branding support, and parent engagement formats for preschool teams.</p>
+          <a class="text-link" href="services.html">View services</a>
+        </article>
+        <article class="spotlight-card reveal">
+          <span class="spotlight-number">03</span>
+          <i data-lucide="message-circle-heart" aria-hidden="true"></i>
+          <h2>Better visibility for your preschool.</h2>
+          <p>Social media growth, inquiry support, and communication material that helps families notice your school.</p>
+          <a class="text-link" href="contact.html">Book a demo</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="color-band">
+      <div class="color-band-inner reveal">
+        <p class="eyebrow">One bag. Many outcomes.</p>
+        <h2>Built for classrooms, school teams, and parent trust.</h2>
+        <div class="mini-metrics" aria-label="One Bag Learning focus areas">
+          <span><strong>360</strong> learning days</span>
+          <span><strong>25</strong> product lines</span>
+          <span><strong>5</strong> growth layers</span>
         </div>
       </div>
-
-      <form class="contact-form reveal" id="contact-form">
-        <label>
-          <span>Your name</span>
-          <input type="text" name="name" autocomplete="name" required />
-        </label>
-        <label>
-          <span>School name</span>
-          <input type="text" name="school" autocomplete="organization" required />
-        </label>
-        <label>
-          <span>Phone or email</span>
-          <input type="text" name="contact" autocomplete="email" required />
-        </label>
-        <label>
-          <span>Interested in</span>
-          <select name="interest" required>
-            <option value="">Choose one</option>
-            <option>Services</option>
-            <option>Products</option>
-            <option>School ERP</option>
-            <option>Complete preschool package</option>
-          </select>
-        </label>
-        <label class="wide">
-          <span>Message</span>
-          <textarea name="message" rows="4" placeholder="Tell us about your preschool requirement"></textarea>
-        </label>
-        <button class="btn btn-primary wide" type="submit">
-          <span>Send enquiry</span>
-          <i data-lucide="send" aria-hidden="true"></i>
-        </button>
-        <p class="form-note" role="status" aria-live="polite"></p>
-      </form>
     </section>
   </main>
 
   <footer class="site-footer">
     <div>
-      <a class="brand footer-brand" href="#home" aria-label="One Bag Learning home">
-        <span class="brand-mark">OBL</span>
+      <a class="brand footer-brand" href="index.html" aria-label="One Bag Learning home">
+        <img class="footer-logo" src="assets/OBL%20Logo.png" alt="One Bag Learning logo" width="48" height="48" />
         <span class="brand-text">
-          <strong>One Bag</strong>
-          <small>Learning</small>
+          <strong>One Bag Learning</strong>
+          <small>One bag. Endless learning.</small>
         </span>
       </a>
       <p>Preschool products and services for joyful early learning.</p>
     </div>
     <nav aria-label="Footer navigation">
-      <a href="#services">Services</a>
-      <a href="#products">Products</a>
-      <a href="#contact">Contact</a>
+      <a href="services.html">Services</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <p class="copyright">&copy; 2026 One Bag Learning. All rights reserved.</p>
   </footer>
