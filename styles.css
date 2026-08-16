@@ -84,7 +84,7 @@ textarea {
   left: 0;
   z-index: 50;
   width: 100%;
-  min-height: 66px;
+  min-height: 76px;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
@@ -110,7 +110,21 @@ textarea {
   justify-self: start;
 }
 
-.brand-logo,
+.brand-logo {
+  width: 56px !important;
+  height: 56px !important;
+  max-width: 56px;
+  max-height: 56px;
+  flex: 0 0 56px;
+  object-fit: contain;
+  object-position: center;
+  padding: 5px;
+  background: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
 .footer-logo {
   width: 42px !important;
   height: 42px !important;
@@ -219,7 +233,7 @@ textarea {
 }
 
 .nav-demo:hover {
-  background: #ffd65d;
+  background: #f9ad17f0;
 }
 
 .nav-demo svg {
@@ -240,7 +254,7 @@ textarea {
   border-radius: var(--radius);
   font-weight: 900;
   cursor: pointer;
-  box-shadow: 0 16px 32px rgba(19, 135, 141, 0.24);
+  box-shadow: 0 16px 32px rgba(46, 100, 215, 0.24);
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
@@ -885,18 +899,19 @@ h1,
 
 @media (max-width: 860px) {
   .site-header {
-    min-height: 56px;
+    min-height: 62px;
     grid-template-columns: minmax(0, 1fr) auto;
     padding: 7px 12px;
     overflow: visible;
   }
 
   .brand-logo {
-    width: 36px !important;
-    height: 36px !important;
-    max-width: 36px;
-    max-height: 36px;
-    flex-basis: 36px;
+    width: 46px !important;
+    height: 46px !important;
+    max-width: 46px;
+    max-height: 46px;
+    flex-basis: 46px;
+    padding: 4px;
   }
 
   .brand-name {
